@@ -7,7 +7,7 @@ const homeRouter = require('./home');
 
 const app = express();
 
-app.use('/notes', notesRouter);
-app.use('/home', homeRouter);
+app.use('/', notesRouter);
+app.use('/', homeRouter);
 
 module.exports = app;

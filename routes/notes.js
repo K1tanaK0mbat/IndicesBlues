@@ -24,39 +24,35 @@ notes.get('/', (req, res) => {
 
 
 notes.delete('/:notes_id', (req, res) => {
-  const noteId = req.params.notes_id;
-  readFromFile('./db/notes.json')
-    .then((data) => JSON.parse(data))
-    .then((json) => {
-   
-      const result = json.filter((notes) => notes.notes_id !== noteId);
-
-   
-      writeToFile('./db/notes.json', result);
-
+    const noteId = req.params.notes_id;
+    readFromFile('./db/notes.json')
+      .then((data) => JSON.parse(data))
+      .then((json) => {
+        const result = json.filter((note) => note.notes_id !== noteId); // Change "notes" to "note"
   
-      res.json(`Note ${noteId} has been deleted`);
-    });
-});
+        writeToFile('./db/notes.json', result);
+        res.json(`Note ${noteId} has been deleted`);
+      });
+  });
+  
 
 
 notes.post('/', (req, res) => {
-  console.log(req.body);
-
-  const {  } = req.body;
-
-  if (req.body) {
-    const newNote = {
-     title,
-     text,
-     notes_id: uuidv4(),
-    };
-
-    readAndAppend(newNote, './db/notes.json');
-    res.json(`New note added`);
-  } else {
-    res.error('Error in posting note');
-  }
-});
+    const { title, text } = req.body; // Extract title and text from req.body
+  
+    if (req.body) {
+      const newNote = {
+        title,
+        text,
+        notes_id: uuidv4(),
+      };
+  
+      readAndAppend(newNote, './db/notes.json');
+      res.json(`New note added`);
+    } else {
+      res.error('Error in posting note');
+    }
+  });
+  
 
 module.exports = notes;

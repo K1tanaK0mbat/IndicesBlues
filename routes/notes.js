@@ -8,7 +8,7 @@
 //add it to the db.json file, and then return the new note to the client. 
 //You'll need to find a way to give each note a unique id when it's saved (look into npm packages that could do this for you).
 
-
+const { v4: uuidv4 } = require('uuid');
 const notes = require('express').Router();
 const {
   readFromFile,
@@ -49,7 +49,7 @@ notes.post('/', (req, res) => {
     const newNote = {
      title,
      text,
-     notes_id,
+     notes_id: uuidv4(),
     };
 
     readAndAppend(newNote, './db/notes.json');
@@ -59,4 +59,4 @@ notes.post('/', (req, res) => {
   }
 });
 
-module.exports = tips;
+module.exports = notes;

@@ -21,9 +21,11 @@ notes.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/notes.html'));
   });
   
-  notes.get('/api/notes', (req, res) => {
+  
+notes.get('/api/notes', (req, res) => {
     readFromFile('./db/notes.json').then((data) => res.json(JSON.parse(data)));
   });
+  
 
 
 notes.delete('/:notes_id', (req, res) => {

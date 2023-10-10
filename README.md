@@ -14,6 +14,9 @@ The Note Taker application is for bussiness owners who need a way to plan out ta
 
 ## Installation 
 There is nothing to install, simply click the link of the deployed website.
+https://aqueous-earth-23638-bdf303f8f290.herokuapp.com/notes.html
+![image](https://github.com/K1tanaK0mbat/IndicesBlues/assets/134855189/d93d83f4-f01e-4d27-86af-73f2d9be2da6)
+
 ## Usage 
 When you start the application,  there will be a landing page: click "Get Started". After type a title for your note and descibe the task in the text area. Once you save, it will be added to the column on the left. You can delete notes by clicking o the button aswell.
 ## License 
